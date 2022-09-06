@@ -10,7 +10,7 @@
     <p>
         <h2>INGRESO DE DATOS DEL ESTUDIANTE</h2>
     </p>
-    <form action="./" method="post">
+    <form action="EstudianteController.php" method="post">
         <p>
             <label for="apellidos">Apellidos</label> apellidos
             <input type="text" name="apellidos">
@@ -38,43 +38,23 @@
     <hr>
     <h3>LISTADO DE ESTUDIANTES</h3>
     <hr>
-    <table>
+    <table border="1">
         <th>NOMBRE</th>
         <th>APELLIDOS</th>
         <th>DIRECCION</th>
         <th>TELEFONO</th>
         <th colspan="2">OPERACIONES</th>
     <?php
+        include_once "EstudianteModel.php";
+        $Estudiante = new Estudiante();
+        $ListaEstudiantes = $Estudiante->ListarEstudiantes();
+        while($Estudiantes = mysqli_fetch_assoc($ListaEstudiantes))
         {?>
           <tr>
-                <td>  <?php echo "Diego"?> </td>
-                <td>  <?php echo "Samayoa" ?> </td>
-                <td>  <?php echo "Zona 6" ?> </td>
-                <td>  <?php echo "11111111" ?> </td>
-                <td><a href="eliminar.php"><img src="src\delete.png" alt="Editar"style="width:20px;height:20px;"></a></td>
-                <td><a href="editar.php"><img src="src\edit.svg" alt="Eliminar"style="width:20px;height:20px;"/></a></td>
-          </tr>
-          <tr>
-                <td>  <?php echo "Carlos"?> </td>
-                <td>  <?php echo "Andres" ?> </td>
-                <td>  <?php echo "Zona 8" ?> </td>
-                <td>  <?php echo "22222222" ?> </td>
-                <td><a href="eliminar.php"><img src="src\delete.png" alt="Editar"style="width:20px;height:20px;"></a></td>
-                <td><a href="editar.php"><img src="src\edit.svg" alt="Eliminar"style="width:20px;height:20px;"/></a></td>
-          </tr>
-          <tr>
-                <td>  <?php echo "Juan"?> </td>
-                <td>  <?php echo "Amilcar" ?> </td>
-                <td>  <?php echo "Zona 2" ?> </td>
-                <td>  <?php echo "33333333" ?> </td>
-                <td><a href="eliminar.php"><img src="src\delete.png" alt="Editar"style="width:20px;height:20px;"></a></td>
-                <td><a href="editar.php"><img src="src\edit.svg" alt="Eliminar"style="width:20px;height:20px;"/></a></td>
-          </tr>
-          <tr>
-                <td>  <?php echo "Jan"?> </td>
-                <td>  <?php echo "De leon" ?> </td>
-                <td>  <?php echo "Zona 0" ?> </td>
-                <td>  <?php echo "000000000" ?> </td>
+                <td>  <?php echo $Estudiantes['nombre'] ?> </td>
+                <td>  <?php echo $Estudiantes['apellidos'] ?> </td>
+                <td>  <?php echo $Estudiantes['direccion'] ?> </td>
+                <td>  <?php echo $Estudiantes['telefono'] ?> </td>
                 <td><a href="eliminar.php"><img src="src\delete.png" alt="Editar"style="width:20px;height:20px;"></a></td>
                 <td><a href="editar.php"><img src="src\edit.svg" alt="Eliminar"style="width:20px;height:20px;"/></a></td>
           </tr>
