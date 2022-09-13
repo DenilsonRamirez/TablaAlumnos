@@ -12,7 +12,7 @@
     </p>
     <form action="EstudianteController.php" method="post">
         <p>
-            <label for="apellidos">Apellidos</label> apellidos
+            <label for="apellidos">Apellidos</label>
             <input type="text" name="apellidos">
         </p>
         
@@ -32,7 +32,7 @@
         </p>
         
         <p>
-            <input type="submit" value="Guardar Registro">
+            <input type="submit" value="Guardar Registro" name="btnGuardar">
         </p>
     </form>
     <hr>
@@ -55,8 +55,8 @@
                 <td>  <?php echo $Estudiantes['apellidos'] ?> </td>
                 <td>  <?php echo $Estudiantes['direccion'] ?> </td>
                 <td>  <?php echo $Estudiantes['telefono'] ?> </td>
-                <td><a href="eliminar.php"><img src="src\delete.png" alt="Editar"style="width:20px;height:20px;"></a></td>
-                <td><a href="editar.php"><img src="src\edit.svg" alt="Eliminar"style="width:20px;height:20px;"/></a></td>
+                <td><a href="VistaEditarEstudiante.php?idEst=<?php echo $Estudiantes['idEstudiante'];?>">EDITAR</a></td>
+                <td><a href="VistaEliminarEstudiante.php?idEst=<?php echo $Estudiantes['idEstudiante'];?>">ELIMINAR</a></td>
           </tr>
           
        <?php } ?>
